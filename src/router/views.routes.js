@@ -42,7 +42,7 @@ router.get("/home", async (req, res) => {
 })
 
 router.get("/PersonalCart", async (req, res) => {
-    console.log("entro en el personal cart de viewsrouter")
+   
     const cid = req.session.user.cart;
 
     res.render("cart", {
@@ -54,7 +54,7 @@ router.get("/PersonalCart", async (req, res) => {
 })
 
 router.get("/PersonalCartStatic", async (req, res) => {
-    console.log("entro en el personal cart de views.router")
+   
     const cid = req.session.user.cart;
     const allProducts = await getProductsinCartById(cid)
 
@@ -118,6 +118,14 @@ router.get('/login', publicRoutes, (req, res) => {
     res.render("login", {
         title: "Login Form",
         style: "login.css"
+    })
+});
+
+router.get('/recoverSendEmail', publicRoutes, (req, res) => {
+
+    res.render("passwordRecovSendMail", {
+        title: "Recover Form",
+        style: "recover.css"
     })
 });
 

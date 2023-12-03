@@ -6,3 +6,13 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-11-26T19:37:11.468Z [logs] error: error
 2023-11-26T19:38:03.745Z [logs] error: error
 2023-11-26T19:38:03.746Z [logs] error: Error en CartManager/addCartProducts: TypeError: exceptions is not a constructor
+2023-12-03T17:26:55.158Z [logs] error: error
+2023-12-03T18:02:47.254Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:06:55.291Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:09:52.896Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:10:48.431Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:11:21.372Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:11:21.373Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: rrayAnswer is not defined
+2023-12-03T18:11:49.525Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:11:49.526Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: rrayAnswer is not defined
+2023-12-03T18:12:07.045Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')

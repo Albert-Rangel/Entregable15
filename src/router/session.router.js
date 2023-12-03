@@ -41,21 +41,22 @@ router.post('/signup', publicRoutes, passport.authenticate("register",
     res.redirect('/login');
   });
 
-router.post('/recover', publicRoutes, async (req, res) => {
-  const { email, password } = req.body;
-  const user = await userModel.findOne({ email }).lean();
+// router.post('/recover', publicRoutes, async (req, res) => {
+//   const { email, password } = req.body;
+//   const user = await userModel.findOne({ email }).lean();
 
-  if (!user) {
-    return res.send(
-      'Si tu correo existe en nuestros registros, recibiras un mail con la información para recuperar tu contraseña'
-    );
-  }
+//   if (!user) {
+//     return res.send(
+//       'Si tu correo existe en nuestros registros, recibiras un mail con la información para recuperar tu contraseña'
+//     );
+//   }
 
-  user.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-  await userModel.updateOne({ email }, user);
+//   user.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+//   await userModel.updateOne({ email }, user);
 
-  res.redirect('/login');
-});
+//   res.redirect('/login');
+// });
+
 
 router.get("/github",
   passport.authenticate("github", { scope: ["user:email"] }))

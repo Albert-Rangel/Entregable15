@@ -14,6 +14,7 @@ import {
 } from "./dao/Mongo/ProductManager.js";
 import ChatsRoutes from './router/chat.routes.js'
 import MockRoutes from './router/mock.routes.js'
+import PasswordRoutes from './router/password.routes.js'
 import CartRoutes from './router/cartMongo.routes.js'
 import EmailsRoutes from './router/email.routes.js'
 import compression from "express-compression"
@@ -155,6 +156,7 @@ app.use('/api/products', ProductRoutes)
 app.use('/api/carts', CartRoutes)
 app.use('/api/chats', ChatsRoutes)
 app.use('/api/Mocks', MockRoutes)
+app.use('/api/Recover', PasswordRoutes)
 app.use('/', ViewsRouter)
 
 //socketEvents(Socketserverio)
