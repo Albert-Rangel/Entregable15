@@ -74,3 +74,4 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-03T23:51:44.038Z [logs] error: Error en PasswordService/resetPassword: ReferenceError: email is not defined
 2023-12-03T23:55:58.128Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.setDataValue is not a function
 2023-12-04T00:01:43.075Z [logs] error: Error en PasswordService/resetPassword: ReferenceError: cartsModel is not defined
+2023-12-04T00:19:39.910Z [logs] error: Error en PasswordService/resetPassword: ReferenceError: previouspass is not defined

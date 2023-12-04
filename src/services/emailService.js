@@ -49,8 +49,6 @@ export default class emailService {
 
         try {
 
-            console.log("entro en EMAILSERVICE sendEmailRecover")
-            console.log("html " + html)
             const transporter = nodemailer.createTransport({
                 host: 'smtp.ethereal.email',
                 port: 587,
@@ -80,7 +78,6 @@ export default class emailService {
     }
 
     async getEmailTemplate(data) {
-        console.log("entro en EMAILSERVICE getEmailTemplate")
         const { email, token } = data;
 
         const emailUser = email.split('@')[0].toString();

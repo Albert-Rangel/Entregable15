@@ -42,7 +42,7 @@ export default class passwordService {
 
             await userPassword.save();
 
-            return `SUC|Exito.`;
+            return `SUC|Exito! Se envio un link a su correo para continuar con el restablecimiento de contraseña/`;
 
         } catch (error) {
             logger.error("Error en PasswordService/sendEmailToResetPassword: " + error)
@@ -74,11 +74,23 @@ export default class passwordService {
 
             const usertoUpdate = await userModel.findOne({ email }).lean();
 
+            var previouspassEncryp = usertoUpdate.password
+            console.log("previouspassEncryp " + previouspassEncryp)
+
+            var newpassEncryp = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+            var newpassEncryp1 = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+            console.log("newpassEncryp " + newpassEncryp)
+            console.log("newpassEncryp1 " + newpassEncryp1)
+
+            if(previouspassEncryp == newpassEncryp){
+                return `E02|La contraseña ingresada es la misma que la anterior.`;
+            }
+
             if (!usertoUpdate) {
                 return `E02|No existe usuario con el correo asociado al token.`;
             }
 
-            usertoUpdate.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+            usertoUpdate.password = newpassEncryp;
             await userModel.updateOne({ email }, usertoUpdate);
 
             await userPasswordModel.updateOne(
