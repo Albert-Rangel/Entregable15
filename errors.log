@@ -16,3 +16,61 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-03T18:11:49.525Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
 2023-12-03T18:11:49.526Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: rrayAnswer is not defined
 2023-12-03T18:12:07.045Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:12:58.770Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:14:02.752Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:14:22.657Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:15:26.492Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:16:32.517Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:17:04.130Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:17:48.665Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:20:15.160Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:21:51.883Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T18:30:31.246Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot destructure property 'email' of 'req.params' as it is undefined.
+2023-12-03T18:48:45.368Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot destructure property 'email' of 'req' as it is undefined.
+2023-12-03T18:49:45.662Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot destructure property 'email' of 'req' as it is undefined.
+2023-12-03T18:50:24.268Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot destructure property 'email' of 'req' as it is undefined.
+2023-12-03T18:51:06.025Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot destructure property 'email' of 'req' as it is undefined.
+2023-12-03T18:54:08.831Z [logs] error: Error en PasswordService/sendEmailToResetPassword: TypeError: Cannot destructure property 'email' of 'req' as it is undefined.
+2023-12-03T19:07:31.817Z [logs] error: Error en PasswordService/sendEmailToResetPassword: ReferenceError: userPassword is not defined
+2023-12-03T19:26:33.919Z [logs] error: Error en emailService/sendEmail: Error: No recipients defined
+2023-12-03T19:40:14.788Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T19:41:53.420Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T19:42:09.127Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'params')
+2023-12-03T19:49:37.463Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot destructure property 'token' of 'req' as it is undefined.
+2023-12-03T19:52:22.618Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot destructure property 'password' of 'req' as it is undefined.
+2023-12-03T19:53:53.519Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot destructure property 'token' of 'req' as it is undefined.
+2023-12-03T19:54:38.627Z [logs] error: Error en PasswordManager/initRecovery: TypeError: Cannot destructure property 'token' of 'req.token' as it is undefined.
+2023-12-03T19:56:31.504Z [logs] error: Error en PasswordManager/initRecovery: TypeError: Cannot destructure property 'token' of 'req.token' as it is undefined.
+2023-12-03T19:57:28.178Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'email')
+2023-12-03T19:58:41.045Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'email')
+2023-12-03T20:11:30.727Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.getDataValue is not a function
+2023-12-03T20:12:31.741Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.getDataValue is not a function
+2023-12-03T20:14:14.346Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.getDataValue is not a function
+2023-12-03T20:17:03.212Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.getDataValue is not a function
+2023-12-03T20:17:57.493Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.getDataValue is not a function
+2023-12-03T20:18:31.413Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.getDataValue is not a function
+2023-12-03T20:20:57.896Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.getDataValue is not a function
+2023-12-03T21:09:44.262Z [logs] error: Error en PasswordService/resetPassword: SyntaxError: Expected property name or '}' in JSON at position 4
+2023-12-03T21:15:20.277Z [logs] error: Error en PasswordService/resetPassword: SyntaxError: Expected property name or '}' in JSON at position 4
+2023-12-03T21:15:20.590Z [logs] error: Error en PasswordService/resetPassword: SyntaxError: Expected property name or '}' in JSON at position 4
+2023-12-03T21:16:29.754Z [logs] error: Error en PasswordService/resetPassword: SyntaxError: Expected property name or '}' in JSON at position 4
+2023-12-03T21:17:41.135Z [logs] error: Error en PasswordService/resetPassword: SyntaxError: Expected property name or '}' in JSON at position 4
+2023-12-03T21:19:22.832Z [logs] error: Error en PasswordService/resetPassword: SyntaxError: Expected property name or '}' in JSON at position 4
+2023-12-03T21:33:20.378Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'email')
+2023-12-03T21:34:15.908Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'email')
+2023-12-03T21:34:37.851Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'isUsed')
+2023-12-03T21:35:13.675Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'isUsed')
+2023-12-03T21:35:36.698Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'isUsed')
+2023-12-03T22:43:29.139Z [logs] error: Error en PasswordManager/initRecovery: TypeError: res.Json is not a function
+2023-12-03T22:44:04.242Z [logs] error: Error en PasswordManager/initRecovery: TypeError: res.Json is not a function
+2023-12-03T22:45:09.852Z [logs] error: Error en PasswordManager/initRecovery: TypeError: res.Json is not a function
+2023-12-03T23:27:03.967Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: token is not defined
+2023-12-03T23:28:37.053Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: token is not defined
+2023-12-03T23:34:38.310Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: token is not defined
+2023-12-03T23:36:09.670Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: token is not defined
+2023-12-03T23:41:52.935Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: token is not defined
+2023-12-03T23:43:49.242Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: token is not defined
+2023-12-03T23:44:22.625Z [logs] error: Error en PasswordManager/initRecovery: ReferenceError: token is not defined
+2023-12-03T23:51:44.038Z [logs] error: Error en PasswordService/resetPassword: ReferenceError: email is not defined
+2023-12-03T23:55:58.128Z [logs] error: Error en PasswordService/resetPassword: TypeError: userPassword.setDataValue is not a function
+2023-12-04T00:01:43.075Z [logs] error: Error en PasswordService/resetPassword: ReferenceError: cartsModel is not defined

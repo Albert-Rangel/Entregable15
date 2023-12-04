@@ -42,7 +42,7 @@ router.get("/home", async (req, res) => {
 })
 
 router.get("/PersonalCart", async (req, res) => {
-   
+
     const cid = req.session.user.cart;
 
     res.render("cart", {
@@ -54,7 +54,7 @@ router.get("/PersonalCart", async (req, res) => {
 })
 
 router.get("/PersonalCartStatic", async (req, res) => {
-   
+
     const cid = req.session.user.cart;
     const allProducts = await getProductsinCartById(cid)
 
@@ -113,7 +113,7 @@ router.get("/carts/:cid", async (req, res) => {
 })
 
 router.get('/login', publicRoutes, (req, res) => {
-   
+
 
     res.render("login", {
         title: "Login Form",
@@ -183,6 +183,18 @@ router.get('/failogin', publicRoutes, (req, res) => {
     res.render("faillogin", {
         title: "fail Login page",
         style: "failLogin.css"
+    })
+});
+
+router.post('/generalFailform', (req, res) => {
+    console.log("entro en en viesrouter")
+    var { message } = req.body
+    console.log("message " + message)
+
+    res.render("generalFailform", {
+        title: "General FailForm",
+        style: "failLogin.css",
+        message
     })
 });
 

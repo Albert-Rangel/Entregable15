@@ -50,7 +50,7 @@ export default class emailService {
         try {
 
             console.log("entro en EMAILSERVICE sendEmailRecover")
-
+            console.log("html " + html)
             const transporter = nodemailer.createTransport({
                 host: 'smtp.ethereal.email',
                 port: 587,

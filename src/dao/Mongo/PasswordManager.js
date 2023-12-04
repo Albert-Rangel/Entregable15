@@ -38,19 +38,19 @@ function ManageAnswer(answer) {
 export const sendEmailToResetPassword = async (req, res) => {
 
   try {
-    console.log("entro en MANAGER sendEmailToResetPassword")
-    let answer = await PasswordService.sendEmailToResetPassword()
-    console.log("salio de MANAGER sendEmailToResetPassword")
+    var email = req.body
+
+    let answer = await PasswordService.sendEmailToResetPassword(email)
 
     const arrayAnswer = ManageAnswer(answer)
     var message = arrayAnswer[1]
-    console.log("mensaje " + message)
     if (arrayAnswer[0] != 200) {
       return res.render("generalFailform", {
         title: "failinf page",
         style: "failsignup.css",
         message
       })
+
     }
 
     return res.render("generalFailform", {
@@ -73,29 +73,38 @@ export const resetPassword = async (req, res) => {
 
   try {
 
-    let answer = await PasswordService.resetPassword()
+    var { password, password2, token_ } = req.body
+   
+
+
+    let answer = await PasswordService.resetPassword({ token_, password, password2 })
+
+    console.log("answer " + answer)
 
     const arrayAnswer = ManageAnswer(answer)
+
+
     var message = arrayAnswer[1]
     if (arrayAnswer[0] != 200) {
-      res.render("generalFailform", {
+      return res.render("generalFailform", {
         title: "failinf page",
         style: "failsignup.css",
         message
       })
     }
 
-    res.render("login", {
+    return res.render("login", {
       title: "Login Form",
       style: "login.css"
     })
 
   } catch (error) {
     logger.error("Error en PasswordManager/initRecovery: " + error)
-    res.render("generalFailform", {
+    return res.render("generalFailform", {
       title: "failinf page",
       style: "failsignup.css",
-      message
+      error
     })
+    
   }
 }

@@ -13,38 +13,18 @@ export default class passwordService {
 
     async sendEmailToResetPassword(req, res) {
         try {
-            console.log("entro en CERVICE sendEmailToResetPassword")
 
-            const { email } = req.params;
-            console.log("email" + email)
+            const { email } = req;
 
-            const user = await userModel.findOne({
-                where: {
-                    email: email
-                }
-            });
+            const user = await userModel.find({ email: email });
 
             if (!user) {
-                console.log("ENTRO EN IF")
                 return `E02|El email no se encuentra agregado.`;
             }
 
-            // let userPassword = await UserPassword.findOne({
-            //     where: {
-            //         userId: user.getDataValue('id'),
-            //         isUsed: false
-            //     }
-            // });
-
-            // if (userPassword) {
-            //     userPassword.setDataValue('isUsed', true);
-            //     await userPassword.save();
-            // }
-
             const token = generateRandomString(16);
-            console.log("TOKEN" + token)
 
-            userPassword = new userPasswordModel({
+            var userPassword = new userPasswordModel({
                 userId: user._id,
                 email: email,
                 token: token,
@@ -55,15 +35,12 @@ export default class passwordService {
                 email: email,
                 token: token
             }
-            console.log("data" + data)
 
-            console.log("creare al template")
-            const emailHTMLTemplate = emailService.getEmailTemplate(data);
-            console.log("emailHTMLTemplate " + emailHTMLTemplate)
+            const emailHTMLTemplate = await emailService.getEmailTemplate(data);
 
             await emailService.sendEmailRecover(email, 'Recuperar contraseña', emailHTMLTemplate);
+
             await userPassword.save();
-            console.log("se salvo el token en bd")
 
             return `SUC|Exito.`;
 
@@ -77,21 +54,17 @@ export default class passwordService {
     async resetPassword(req, res) {
         try {
 
-            const { token } = req.params;
-            const { password, password2 } = req.body;
+            var { token_, password, password2 } = req
 
-            var userPassword = await userPasswordModel.findOne({
-                where: {
-                    token: token
-                }
-            });
-            var email = userPassword.email
+            const userPassword = await userPasswordModel.find({ token: token_ });
+            
+            const email = userPassword[0].email;
 
-            if (!userPassword) {
+            if (!userPassword || userPassword == null || Object.keys(userPassword).length === 0 ) {
                 return `E02|No se encontro el token en base de datos.`;
             }
 
-            if (userPassword.getDataValue('isUsed') === true) {
+            if (userPassword[0].isUsed === true) {
                 return `E02|Token ya usado o expirado.`;
             }
 
@@ -108,9 +81,10 @@ export default class passwordService {
             usertoUpdate.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
             await userModel.updateOne({ email }, usertoUpdate);
 
-
-            userPassword.setDataValue('isUsed', true);
-            await userPassword.save();
+            await userPasswordModel.updateOne(
+                { "email": email },
+                { $set: { isUsed: true } }
+            )
 
             return `SUC|Exito.`;
 
