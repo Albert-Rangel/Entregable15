@@ -1,7 +1,7 @@
 const socket = io()
 
 socket.on('AllProducts', (data) => {
-   
+
     updateProductList(data);
 });
 
@@ -24,7 +24,7 @@ function updateProductList(products) {
                         Stock: ${stock}</br> 
                         Status: ${status}</br> 
                         Category: ${category}</br> 
-                        Category: ${owner}</br> 
+                        owner: ${owner}</br> 
 
                     </div>
                 </div>
@@ -40,6 +40,9 @@ let productForm = document.getElementById("formProduct");
 productForm.addEventListener('submit', (evt) => {
     evt.preventDefault()
 
+
+    var emailId = document.getElementById("email").innerText;
+
     let description = productForm.elements.description.value;
     let title = productForm.elements.title.value;
     let price = productForm.elements.price.value;
@@ -48,10 +51,7 @@ productForm.addEventListener('submit', (evt) => {
     let stock = productForm.elements.stock.value;
     var status = document.getElementById('status').checked;
     let category = productForm.elements.category.value;
-   
 
-
-    
     socket.emit('sendNewProduct', {
         title,
         description,
@@ -61,7 +61,8 @@ productForm.addEventListener('submit', (evt) => {
         stock,
         status,
         category,
-      
+        owner: emailId,
+
     })
     productForm.reset()
 })

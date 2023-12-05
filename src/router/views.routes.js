@@ -13,9 +13,14 @@ import permissionsRoutes from "../middlewares/adminpermissionsRoutes.js"
 const router = express.Router()
 
 router.get("/realTimeProducts", privateRoutes, permissionsRoutes, async (req, res) => {
+
+    var email = req.session.user.email
+
+
     res.render("realTimeProducts", {
         title: "Real Time Products",
-        style: "home.css"
+        style: "home.css",
+        email
     })
 })
 
@@ -97,7 +102,7 @@ router.get("/products", privateRoutes, async (req, res) => {
     const swPremium = role === 'Premium' || role === 'premium' ? true : false;
     console.log("swpremium " + swPremium)
     console.log("swAdmin " + swAdmin)
-    
+
     res.render("catalog", {
         title: "Catalog",
         style: "catalog.css",

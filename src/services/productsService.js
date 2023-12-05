@@ -9,7 +9,7 @@ export default class productsService {
 
             console.log("entro en servicio")
 
-            const { title, description, price, thumbnail, code, stock, status, category, owner } = ObjectProduct;
+            const { description, title, price, thumbnail, code, stock, status, category, owner } = ObjectProduct;
             console.log(title + " 1 "+ owner)
 
 

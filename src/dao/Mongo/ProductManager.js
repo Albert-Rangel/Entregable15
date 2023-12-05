@@ -50,8 +50,8 @@ export const getProducts = async (req, res) => {
       query = req.query;
 
     } else {
-
-      limit = parseInt(req.query.limit, 10) == 0 || req.query.limit == null ? 20 : parseInt(req.query.limit, 10);
+      console.log("entro en el else de req.limit 0")
+      limit = parseInt(req.query.limit, 10) == 0 || req.query.limit == null ? 50 : parseInt(req.query.limit, 10);
       page = parseInt(req.query.page, 10) == 0 || req.query.page == null ? 1 : parseInt(req.query.page, 10);
       sort_ = req.query.sort;
       query = req.query.query;
@@ -82,8 +82,6 @@ export const getProducts = async (req, res) => {
 }
 export const addProduct = async (req, res) => {
   try {
-    
-
 
     let swWeb = false
     let newproduct = {}

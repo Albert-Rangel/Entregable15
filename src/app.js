@@ -69,7 +69,6 @@ Socketserverio.on('connection', async (socket) => {
   Socketserverio.emit('AllProductsCart', productList)
 
   socket.on('sendNewProduct', async (newP) => {
-    console.log("va a crear un nuevo producto en el app")
     const newProduct = {
       description: newP.description,
       title: newP.title,
@@ -80,14 +79,15 @@ Socketserverio.on('connection', async (socket) => {
       status: newP.status,
       category: newP.category,
       swWeb: true,
+      owner: newP.owner,
 
     }
 
-    console.log(newProduct)
-
     await addProduct(newProduct);
+    console.log("ya lo agrego")
+    const productList = await getProducts({ limit: 50, page: 1, sort: null, query: null });
 
-    const productList = await getProducts({ limit: 20, page: 1, sort: null, query: null });
+    console.log(productList)
 
     Socketserverio.emit('AllProducts', productList)
   })

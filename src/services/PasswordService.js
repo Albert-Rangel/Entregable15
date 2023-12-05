@@ -32,7 +32,7 @@ export default class passwordService {
                 userId: user._id,
                 email: email,
                 token: token,
-                timestamp:nowtime,
+                timestamp: nowtime,
                 is_used: false
             });
 
@@ -60,9 +60,9 @@ export default class passwordService {
         try {
 
             var { token_, password, password2 } = req
-
+            
             const userPassword = await userPasswordModel.find({ token: token_ });
-
+            console.log(userPassword)
             const email = userPassword[0].email;
 
             const tokentime = userPassword.timestamp;
@@ -97,7 +97,7 @@ export default class passwordService {
             var newpassEncryp = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
             // console.log(newpassEncryp)
 
-            const isValid =  bcrypt.compare(previouspassEncryp, password)
+            const isValid = bcrypt.compare(previouspassEncryp, password)
             if (!isValid) return `E02|La contraseña ingresada es la misma que la anterior.`;
 
 

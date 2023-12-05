@@ -99,3 +99,20 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-05T00:56:15.347Z [logs] error: Error en ProductsService/getProductWpaginviaService: MongooseError: Operation `products.countDocuments()` buffering timed out after 10000ms
 2023-12-05T01:12:58.575Z [logs] error: Error en ProductsService/getProductWpaginviaService: MongooseError: Operation `products.countDocuments()` buffering timed out after 10000ms
 2023-12-05T02:10:21.429Z [logs] error: error
+2023-12-05T13:58:55.716Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T13:59:03.174Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T13:59:10.050Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T14:01:32.505Z [logs] error: Error en ProductManager/addProduct: TypeError: Cannot read properties of undefined (reading 'user')
+2023-12-05T14:20:36.496Z [logs] error: Error en ProductsService/addProductviaService: MongoServerError: E11000 duplicate key error collection: test.products index: code_1 dup key: { code: "1" }
+2023-12-05T14:29:59.827Z [logs] error: Error en ProductsService/addProductviaService: MongoServerError: E11000 duplicate key error collection: test.products index: code_1 dup key: { code: "1" }
+2023-12-05T14:39:37.727Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T14:39:42.157Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T14:39:46.904Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T14:42:44.602Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T14:50:36.726Z [logs] error: Error en ProductManager/getProducts: TypeError: Cannot read properties of null (reading 'limit')
+2023-12-05T14:54:56.760Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T14:59:08.590Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'email')
+2023-12-05T15:01:00.166Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'email')
+2023-12-05T15:02:24.282Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'email')
+2023-12-05T15:05:06.481Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'email')
+2023-12-05T15:05:54.944Z [logs] error: Error en PasswordService/resetPassword: ReferenceError: password2 is not defined
