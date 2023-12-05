@@ -116,3 +116,31 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-05T15:02:24.282Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'email')
 2023-12-05T15:05:06.481Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of undefined (reading 'email')
 2023-12-05T15:05:54.944Z [logs] error: Error en PasswordService/resetPassword: ReferenceError: password2 is not defined
+2023-12-05T16:59:04.725Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: next is not defined
+2023-12-05T17:00:38.381Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: next is not defined
+2023-12-05T17:07:02.893Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'pid')
+2023-12-05T17:07:48.861Z [logs] error: Error en ProductsService/deletProductviaService: CastError: Cast to ObjectId failed for value "{ _id: { pid: undefined, uid: undefined } }" (type Object) at path "_id" for model "products"
+2023-12-05T17:07:48.863Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:08:59.217Z [logs] error: Error en ProductsService/deletProductviaService: CastError: Cast to ObjectId failed for value "{ _id: { pid: undefined, uid: undefined } }" (type Object) at path "_id" for model "products"
+2023-12-05T17:08:59.219Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:10:12.779Z [logs] error: Error en ProductsService/deletProductviaService: CastError: Cast to ObjectId failed for value "{ _id: { pid: undefined, uid: undefined } }" (type Object) at path "_id" for model "products"
+2023-12-05T17:10:12.782Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:13:44.385Z [logs] error: Error en ProductsService/deletProductviaService: CastError: Cast to ObjectId failed for value "{
+  _id: { pid: '656f56afb2c1ce44fc3b6d3c', uid: '656e5b70a957e51f125d6364' }
+}" (type Object) at path "_id" for model "products"
+2023-12-05T17:13:44.387Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:17:39.918Z [logs] error: Error en ProductsService/deletProductviaService: CastError: Cast to ObjectId failed for value "{
+  _id: { pid: '656f56afb2c1ce44fc3b6d3c', uid: '656e5b70a957e51f125d6364' }
+}" (type Object) at path "_id" for model "products"
+2023-12-05T17:17:39.919Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:19:31.236Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:21:36.543Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: isUserAuthorized is not defined
+2023-12-05T17:22:26.585Z [logs] error: Error en ProductManager/deleteProduct: TypeError: next is not a function
+2023-12-05T17:23:36.581Z [logs] error: Error en ProductManager/deleteProduct: ReferenceError: next is not defined
+2023-12-05T17:34:50.029Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:35:48.959Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:56:28.664Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:57:49.349Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T17:59:18.331Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T18:03:01.781Z [logs] error: Error en ProductManager/deleteProduct: TypeError: Cannot read properties of undefined (reading 'status')
+2023-12-05T18:37:20.045Z [logs] error: error

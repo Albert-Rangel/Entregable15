@@ -23,22 +23,24 @@
     <a href="/PersonalCartStatic" class="boton">
         See your Shooping Cart
     </a>
+    <a href="/api/users/premium/{{uid}}" class="boton">
+        Cambiar de rol
+    </a>
     {{/if}}
 
     {{#if swAdmin}}
     <a href="/realTimeProducts" class="boton">
         Product Managment Section
     </a>
-    <a href="/api/users/premium/{{uid}}" class="boton">
-        Cambiar de rol
-    </a>
     {{/if}}
 
     {{#if swPremium}}
+    <a href="/PersonalCartStatic" class="boton">
+        See your Shooping Cart
+    </a>
     <a href="/realTimeProducts" class="boton">
         Product Managment Section
     </a>
-
     <a href="/api/users/premium/{{uid}}" class="boton">
         Cambiar de rol
     </a>
@@ -47,6 +49,14 @@
 </div>
 
 
+{{#if swPremium}}
+<div class="container-fluid" style="display: inline">
+    <h2>Product Catalog</h2>
+    <span id="counter" style="display: block"></span>
+    <div id="catalogo" class="row"></div>
+    <div id="cartid"> {{cart}}</div>
+</div>
+{{/if}}
 
 {{#if swUser}}
 <div class="container-fluid" style="display: inline">

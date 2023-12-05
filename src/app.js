@@ -92,8 +92,8 @@ Socketserverio.on('connection', async (socket) => {
     Socketserverio.emit('AllProducts', productList)
   })
 
-  socket.on('functionDeleteProduct', async (idp) => {
-    await deleteProduct(idp);
+  socket.on('functionDeleteProduct', async ({pid,uid}) => {
+    await deleteProduct({pid, uid});
     const productList = await getProducts({ limit: 20, page: 1, sort: null, query: null });
     Socketserverio.emit('AllProducts', productList)
   })

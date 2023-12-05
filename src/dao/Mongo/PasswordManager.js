@@ -74,14 +74,7 @@ export const resetPassword = async (req, res) => {
   try {
 
     var { password, password2, token_ } = req.body
-    console.log("token_ en manager " + token_)
-    console.log("password " + password)
-    console.log("password2  " + password2)
-
-
     let answer = await PasswordService.resetPassword({ token_, password, password2 })
-
-    console.log("answer " + answer)
 
     const arrayAnswer = ManageAnswer(answer)
 

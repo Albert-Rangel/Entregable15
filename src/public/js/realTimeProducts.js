@@ -69,7 +69,9 @@ productForm.addEventListener('submit', (evt) => {
 
 document.getElementById("deleteBoton").addEventListener("click", function () {
     const producttoDelete = document.getElementById("ProductID");
-    const PRODID = producttoDelete.value;
-    socket.emit("functionDeleteProduct", PRODID);
+    var uid = document.getElementById("id").innerText;
+    const pid = producttoDelete.value;
+
+    socket.emit("functionDeleteProduct", {pid,uid});
     producttoDelete.value = "";
 });

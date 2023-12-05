@@ -1,7 +1,12 @@
 
 import productsService from '../../services/productsService.js';
+import usersService from '../../services/usersService.js';
+
 import { logger } from '../../utils/logger.js';
+
 const productService = new productsService()
+const UsersService = new usersService()
+
 
 function ManageAnswer(answer) {
   const arrayAnswer = []
@@ -198,28 +203,53 @@ export const updateProduct = async (req, res) => {
   }
 }
 export const deleteProduct = async (req, res) => {
+  let swWeb = false
   try {
+    console.log("entro en deleteproduct")
     let pid = 0
+    let uid = 0
+
 
     if (req.params == undefined) {
-      pid = req
+      console.log("entro en primero")
+      swWeb = true
+
+      pid = req.pid
+      uid = req.uid
     } else {
+      console.log("entro en segundo")
+
       pid = req.params.pid
     }
+    var swSuccess = await UsersService.verifyProductPermission(uid, pid)
 
+    console.log("salio del middleware valor: " + swSuccess)
+
+    if (!swSuccess) {
+
+      return swWeb ? swSuccess : res.status(arrayAnswer[0]).send({
+        status: arrayAnswer[0],
+        message: arrayAnswer[1]
+      })
+    }
 
     let answer = await productService.deletProductviaService({ _id: pid });
     const arrayAnswer = ManageAnswer(answer)
-    return res.status(arrayAnswer[0]).send({
+    return swWeb ? swSuccess : res.status(arrayAnswer[0]).send({
       status: arrayAnswer[0],
       message: arrayAnswer[1]
     })
   }
   catch (error) {
     logger.error("Error en ProductManager/deleteProduct: " + error)
-    return `ERR|Error generico. Descripcion :${error}`
+    return swWeb ? `ERR|Error generico. Descripcion :${error}` : res.status(500).send({
+      status: "500",
+      message: `Se ha arrojado una exepcion: error`
+    })
   }
 }
+
+
 
 
 

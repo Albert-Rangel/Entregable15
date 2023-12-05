@@ -15,12 +15,12 @@ const router = express.Router()
 router.get("/realTimeProducts", privateRoutes, permissionsRoutes, async (req, res) => {
 
     var email = req.session.user.email
-
-
+    var id = req.session.user.id
+    console.log("id " + id)
     res.render("realTimeProducts", {
         title: "Real Time Products",
         style: "home.css",
-        email
+        email, id
     })
 })
 

@@ -62,14 +62,13 @@ export default class passwordService {
             var { token_, password, password2 } = req
             
             const userPassword = await userPasswordModel.find({ token: token_ });
-            console.log(userPassword)
+            
             const email = userPassword[0].email;
 
             const tokentime = userPassword.timestamp;
-            console.log("tokentime " + tokentime)
 
             const currenttime = Date.now() / 1000;
-            console.log("currenttime " + currenttime)
+           
 
             const exptime = currenttime - tokentime;
 
@@ -92,10 +91,8 @@ export default class passwordService {
             const usertoUpdate = await userModel.findOne({ email }).lean();
 
             var previouspassEncryp = usertoUpdate.password
-            console.log(previouspassEncryp)
 
             var newpassEncryp = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-            // console.log(newpassEncryp)
 
             const isValid = bcrypt.compare(previouspassEncryp, password)
             if (!isValid) return `E02|La contraseña ingresada es la misma que la anterior.`;
