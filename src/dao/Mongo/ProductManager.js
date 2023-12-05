@@ -73,7 +73,7 @@ export const getProducts = async (req, res) => {
     return swWeb ? products : res.send(products);
 
   } catch (error) {
-    logger.error("Error en ProductManager/getProducts: "+ error)
+    logger.error("Error en ProductManager/getProducts: " + error)
     return res.status(500).send({
       status: "500",
       message: `Se ha arrojado una exepcion: error`
@@ -82,16 +82,21 @@ export const getProducts = async (req, res) => {
 }
 export const addProduct = async (req, res) => {
   try {
+    
+
 
     let swWeb = false
     let newproduct = {}
     if (req.body == undefined) {
-
+      console.log("entro en if es web")
       swWeb = true
       newproduct = req
     } else {
+      console.log("entro en if es api")
+
       newproduct = req.body
     }
+    console.log("llamara al servicio")
 
     const answer = await productService.addProductviaService(newproduct);
 
@@ -104,8 +109,8 @@ export const addProduct = async (req, res) => {
     return swWeb ? anwserObject : res.send(anwserObject);
 
   } catch (error) {
-    logger.error("Error en ProductManager/addProduct: "+ error)
-    return res.status(500).send({
+    logger.error("Error en ProductManager/addProduct: " + error)
+    return res.send({
       status: "500",
       message: `Se ha arrojado una exepcion: ${error} `
     })
@@ -131,7 +136,7 @@ export const getProducts_ = async (req, res) => {
     return res.send(products);
 
   } catch (error) {
-    logger.error("Error en ProductManager/getProducts_: "+ error)
+    logger.error("Error en ProductManager/getProducts_: " + error)
     return res.status(500).send({
       status: "500",
       message: `Se ha arrojado una exepcion: error`
@@ -156,7 +161,7 @@ export const getProductById = async (req, res) => {
     }
     return res.send(found);
   } catch (error) {
-    logger.error("Error en ProductManager/getProductById: "+ error)
+    logger.error("Error en ProductManager/getProductById: " + error)
     return res.status(500).send({
       status: "500",
       message: `Se ha arrojado una exepcion: error`
@@ -186,7 +191,7 @@ export const updateProduct = async (req, res) => {
       message: arrayAnswer[1]
     })
   } catch (error) {
-    logger.error("Error en ProductManager/updateProduct: "+ error)
+    logger.error("Error en ProductManager/updateProduct: " + error)
 
     return res.status(500).send({
       status: "500",
@@ -204,7 +209,7 @@ export const deleteProduct = async (req, res) => {
       pid = req.params.pid
     }
 
-   
+
     let answer = await productService.deletProductviaService({ _id: pid });
     const arrayAnswer = ManageAnswer(answer)
     return res.status(arrayAnswer[0]).send({
@@ -213,7 +218,7 @@ export const deleteProduct = async (req, res) => {
     })
   }
   catch (error) {
-    logger.error("Error en ProductManager/deleteProduct: "+ error)
+    logger.error("Error en ProductManager/deleteProduct: " + error)
     return `ERR|Error generico. Descripcion :${error}`
   }
 }

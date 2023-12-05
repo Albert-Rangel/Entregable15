@@ -6,7 +6,14 @@ export default class productsService {
 
     async addProductviaService(ObjectProduct) {
         try {
-            const { title, description, price, thumbnail, code, stock, status, category } = ObjectProduct;
+
+            console.log("entro en servicio")
+
+            const { title, description, price, thumbnail, code, stock, status, category, owner } = ObjectProduct;
+            console.log(title + " 1 "+ owner)
+
+
+
             const product = await productsModel.create({
                 title,
                 description,
@@ -15,8 +22,10 @@ export default class productsService {
                 code,
                 stock,
                 status,
-                category
+                category,
+                owner
             });
+            console.log("retornara de haber creado el producto")
             return `SUC|Producto agregado con el id ${product._id}`
         } catch (error) {
             logger.error("Error en ProductsService/addProductviaService: " + error)
@@ -78,8 +87,7 @@ export default class productsService {
     async getProductbyIDviaService(pid) {
         try {
 
-            const found = await productsModel.find({ _id: pid });
-
+            
             if (found === undefined || found == [] || found == null || Object.keys(found).length === 0) {
 
                 return `E02|El producto con el id ${pid._id} no se encuentra agregado.`;
@@ -97,7 +105,7 @@ export default class productsService {
     async updateProductviaService(pid, product) {
         try {
 
-            const { title, description, price, thumbnail, code, stock, status, category } = product;
+            const { title, description, price, thumbnail, code, stock, status, category, owner } = product;
 
             const found = await productsModel.find({ _id: pid });
             if (found == undefined || Object.keys(found).length === 0) return `E02|El producto con el id ${pid} no se encuentra agregado.`;
@@ -116,7 +124,8 @@ export default class productsService {
                     code,
                     stock,
                     status,
-                    category
+                    category,
+                    owner
                 });
 
             return `SUC|El producto con el id : ${pid} fue actualizado.`;

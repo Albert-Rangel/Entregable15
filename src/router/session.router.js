@@ -18,7 +18,7 @@ router.post('/login', publicRoutes,
     // Extract the hexadecimal representation
     const hexString = objectId_.toHexString();
 
-
+    
     req.session.user = {
       firstname: req.user.firstname,
       lastname: req.user.lastname,
@@ -27,6 +27,7 @@ router.post('/login', publicRoutes,
       cart: hexString,
       admin: false,
       role: req.user.role,
+      id:req.user._id,
     };
 
     req.session.isLogged = true;
@@ -40,22 +41,6 @@ router.post('/signup', publicRoutes, passport.authenticate("register",
   async (req, res) => {
     res.redirect('/login');
   });
-
-// router.post('/recover', publicRoutes, async (req, res) => {
-//   const { email, password } = req.body;
-//   const user = await userModel.findOne({ email }).lean();
-
-//   if (!user) {
-//     return res.send(
-//       'Si tu correo existe en nuestros registros, recibiras un mail con la información para recuperar tu contraseña'
-//     );
-//   }
-
-//   user.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-//   await userModel.updateOne({ email }, user);
-
-//   res.redirect('/login');
-// });
 
 
 router.get("/github",

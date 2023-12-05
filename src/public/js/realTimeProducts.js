@@ -10,7 +10,7 @@ function updateProductList(products) {
     const containerDiv = document.getElementById("allProductsContainer");
     let contenidocambiante = ""
 
-    products.docs.forEach(({ thumbnail, price, description, _id, code, stock, status, category, title }) => {
+    products.docs.forEach(({ thumbnail, price, description, _id, code, stock, status, category, title, owner }) => {
         contenidocambiante += `<div class="form-container">
             <div>
                 <div class="card">
@@ -24,6 +24,8 @@ function updateProductList(products) {
                         Stock: ${stock}</br> 
                         Status: ${status}</br> 
                         Category: ${category}</br> 
+                        Category: ${owner}</br> 
+
                     </div>
                 </div>
             </div>
@@ -46,6 +48,8 @@ productForm.addEventListener('submit', (evt) => {
     let stock = productForm.elements.stock.value;
     var status = document.getElementById('status').checked;
     let category = productForm.elements.category.value;
+   
+
 
     
     socket.emit('sendNewProduct', {
@@ -57,6 +61,7 @@ productForm.addEventListener('submit', (evt) => {
         stock,
         status,
         category,
+      
     })
     productForm.reset()
 })

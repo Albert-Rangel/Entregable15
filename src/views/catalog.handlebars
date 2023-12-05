@@ -18,27 +18,30 @@
         LogOut
     </a>
 
-    {{!-- <button id="personalCatalog" class="boton" value="{{cart}}">
-        See your Cart
-    </button> --}}
 
-    {{!-- <a href="/PersonalCart" class="boton">
-        See your Shoopin Cart
-    </a> --}}
     {{#if swUser}}
     <a href="/PersonalCartStatic" class="boton">
         See your Shooping Cart
     </a>
     {{/if}}
-    {{!-- <a href="/api/carts/cartPurchase" class="boton">
-        See your Shooping Cart
-    </a> --}}
 
     {{#if swAdmin}}
     <a href="/realTimeProducts" class="boton">
         Product Managment Section
     </a>
+    <a href="/api/users/premium/{{uid}}" class="boton">
+        Cambiar de rol
+    </a>
+    {{/if}}
 
+    {{#if swPremium}}
+    <a href="/realTimeProducts" class="boton">
+        Product Managment Section
+    </a>
+
+    <a href="/api/users/premium/{{uid}}" class="boton">
+        Cambiar de rol
+    </a>
     {{/if}}
 
 </div>

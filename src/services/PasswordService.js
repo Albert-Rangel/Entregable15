@@ -6,6 +6,7 @@ import { generateRandomString } from '../utils/credentials.util.js';
 import emailsService from '../services/emailService.js';
 
 import bcrypt from 'bcrypt';
+// import { Console } from 'winston/lib/winston/transports/index.js';
 const emailService = new emailsService()
 
 
@@ -24,10 +25,14 @@ export default class passwordService {
 
             const token = generateRandomString(16);
 
+            const time = Date.now();
+            const nowtime = time / 1000;
+
             var userPassword = new userPasswordModel({
                 userId: user._id,
                 email: email,
                 token: token,
+                timestamp:nowtime,
                 is_used: false
             });
 
@@ -42,7 +47,7 @@ export default class passwordService {
 
             await userPassword.save();
 
-            return `SUC|Exito! Se envio un link a su correo para continuar con el restablecimiento de contraseña/`;
+            return `SUC|Exito! Se envio un link a su correo para continuar con el restablecimiento de contraseña`;
 
         } catch (error) {
             logger.error("Error en PasswordService/sendEmailToResetPassword: " + error)
@@ -57,15 +62,27 @@ export default class passwordService {
             var { token_, password, password2 } = req
 
             const userPassword = await userPasswordModel.find({ token: token_ });
-            
+
             const email = userPassword[0].email;
 
-            if (!userPassword || userPassword == null || Object.keys(userPassword).length === 0 ) {
+            const tokentime = userPassword.timestamp;
+            console.log("tokentime " + tokentime)
+
+            const currenttime = Date.now() / 1000;
+            console.log("currenttime " + currenttime)
+
+            const exptime = currenttime - tokentime;
+
+            if (exptime >= 3600) {
+                return `E02|Token Expiro.`;
+            }
+
+            if (!userPassword || userPassword == null || Object.keys(userPassword).length === 0) {
                 return `E02|No se encontro el token en base de datos.`;
             }
 
             if (userPassword[0].isUsed === true) {
-                return `E02|Token ya usado o expirado.`;
+                return `E02|Token ya usado.`;
             }
 
             if (password !== password2) {
@@ -75,16 +92,14 @@ export default class passwordService {
             const usertoUpdate = await userModel.findOne({ email }).lean();
 
             var previouspassEncryp = usertoUpdate.password
-            console.log("previouspassEncryp " + previouspassEncryp)
+            console.log(previouspassEncryp)
 
             var newpassEncryp = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-            var newpassEncryp1 = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-            console.log("newpassEncryp " + newpassEncryp)
-            console.log("newpassEncryp1 " + newpassEncryp1)
+            // console.log(newpassEncryp)
 
-            if(previouspassEncryp == newpassEncryp){
-                return `E02|La contraseña ingresada es la misma que la anterior.`;
-            }
+            const isValid =  bcrypt.compare(previouspassEncryp, password)
+            if (!isValid) return `E02|La contraseña ingresada es la misma que la anterior.`;
+
 
             if (!usertoUpdate) {
                 return `E02|No existe usuario con el correo asociado al token.`;

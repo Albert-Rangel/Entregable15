@@ -55,7 +55,7 @@ const config = {
         // levels: customLevelsOptions.levels,
         transports: [
             new transports.Console({
-                level: "debug",
+                level: "info",
             }),
 
             new transports.File(
