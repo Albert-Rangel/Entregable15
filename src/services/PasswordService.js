@@ -64,6 +64,7 @@ export default class passwordService {
             const userPassword = await userPasswordModel.find({ token: token_ });
             
             const email = userPassword[0].email;
+            console.log("email " + email)
 
             const tokentime = userPassword.timestamp;
 
@@ -94,8 +95,11 @@ export default class passwordService {
 
             var newpassEncryp = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 
-            const isValid = bcrypt.compare(previouspassEncryp, password)
-            if (!isValid) return `E02|La contraseña ingresada es la misma que la anterior.`;
+            var isthesame = await bcrypt.compare(password, previouspassEncryp)
+
+            console.log("isthesame   " + isthesame)
+
+            if (isthesame) return `E02|La contraseña ingresada es la misma que la anterior.`;
 
 
             if (!usertoUpdate) {
